@@ -34,6 +34,6 @@
       "mocha/no-top-level-hooks": "warn",
       "mocha/valid-test-description": "off",
       "mocha/valid-suite-description": "off",
-	  "vue/max-attributes-per-line": "off"
+	  'max-len': 0
     }
   }
