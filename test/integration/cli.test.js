@@ -74,7 +74,7 @@ describe('Newman and htmlextra run from the CLI', function () {
             // eslint-disable-next-line max-len
             let collection = invalidCollectionNameFolder + '/' + file;
 
-            exec(`${newman} run ${collection} -r htmlextra`,
+            exec(`${newman} run ${collection} -r htmlextra-extended`,
                 function (code) {
                     expect(code, 'should have exit code of 0').to.equal(0);
                     let outputFile = fs.readdirSync('newman'),
