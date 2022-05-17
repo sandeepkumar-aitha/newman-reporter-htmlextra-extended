@@ -33,6 +33,7 @@
       "mocha/no-synchronous-tests": "off",
       "mocha/no-top-level-hooks": "warn",
       "mocha/valid-test-description": "off",
-      "mocha/valid-suite-description": "off"
+      "mocha/valid-suite-description": "off",
+	  "vue/max-attributes-per-line": "off"
     }
   }
