@@ -399,6 +399,7 @@ describe('Newman and htmlextra run from a script', function () {
         newman.run({
             collection: 'test/requests/simple-skipped-folder.json',
             reporters: ['htmlextra-extended'],
+            // eslint-disable-next-line max-len
             reporter: { 'htmlextra-extended': { omitHeaders: true, export: outFile, skipRequests: 'request1,request4' } }
         // eslint-disable-next-line consistent-return
         }, function (err, summary) {
