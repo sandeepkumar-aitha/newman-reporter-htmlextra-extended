@@ -29,7 +29,7 @@ describe('project repository', function () {
 
         describe('package.json JSON data', function () {
             it('should have valid name, description and author', function () {
-                expect(json).to.have.property('name', 'newman-reporter-htmlextra');
+                expect(json).to.have.property('name', 'newman-reporter-htmlextra-extended');
                 // eslint-disable-next-line max-len
                 expect(json).to.have.property('description', 'A newman reporter with added handlebars helpers and separated request iterations');
                 expect(json).to.have.property('author', 'Danny Dainton');
@@ -40,7 +40,7 @@ describe('project repository', function () {
                 expect(json).to.have.property('repository');
                 expect(json.repository).to.eql({
                     type: 'git',
-                    url: 'https://github.com/DannyDainton/newman-reporter-htmlextra.git'
+                    url: 'https://github.com/sandeepkumar-aitha/newman-reporter-htmlextra-extended.git'
                 });
 
                 expect(json).to.have.property('keywords');
