@@ -2,11 +2,13 @@
 
 ![Newman htmlextra Reporter Logo](./examples/NewmanHtmlextraReporterLogo.png)
 
-[![Build and Test](https://github.com/DannyDainton/newman-reporter-htmlextra/workflows/Build%20and%20Test/badge.svg)](https://github.com/DannyDainton/newman-reporter-htmlextra/actions)
+[![Build and Test](https://github.com/sandeepkumar-aitha/newman-reporter-htmlextra-extended/workflows/Build%20and%20Test/badge.svg)](https://github.com/sandeepkumar-aitha/newman-reporter-htmlextra-extended/actions)
 [![NPM Version](https://img.shields.io/npm/v/newman-reporter-htmlextra.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra)
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/newman-reporter-htmlextra.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra)
 [![NPM Downloads](https://img.shields.io/npm/dt/newman-reporter-htmlextra.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra)
 [![Docker Pulls](https://img.shields.io/docker/pulls/dannydainton/htmlextra?style=flat-square)](https://hub.docker.com/r/dannydainton/htmlextra)
+
+
 
 A [Newman](https://github.com/postmanlabs/newman) HTML reporter that has been extended to include the separation of the iteration runs so these are no longer aggregated together and also some additional `handlebars helpers` to enable users to create better custom templates. 
 
@@ -23,6 +25,7 @@ If you're a fan of the project and you wanted to show your appreciation by keepi
 ## Report Example
 
 ![Default Report](./examples/Default_Report.gif)
+(./examples/NewmanExtendedSample.png)
 
 ---
 
@@ -98,6 +101,8 @@ newman run collection.json -r htmlextra
 | `--reporter-htmlextra-showFolderDescription` | An optional flag which allows you to show all the folder descriptions, in the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-showFolderDescription`|
 | `--reporter-htmlextra-timezone` | An optional flag which allows you to set the timezone on the final report's timestamp | `newman run collection.json -r htmlextra --reporter-htmlextra-timezone "Australia/Sydney"`|
 | `--reporter-htmlextra-displayProgressBar` | An optional flag which displays the progress of the current Newman run in the CLI | `newman run collection.json -r htmlextra --reporter-htmlextra-displayProgressBar`|
+| `--reporter-htmlextra-iterationNames` | An optional array which displays the iteration names provided in options, If value is not set displays numbers which is default | `newman run collection.json -r htmlextra --reporter-htmlextra-iterationNames`|
+| `--reporter-htmlextra-scenarioNumbering` | An optional flag that will show scenario number if consecutive request have same name, If value set to false or not set scenario numbers won't display | `newman run collection.json -r htmlextra --reporter-htmlextra-scenarioNumbering`|
 
 ---
 
@@ -123,10 +128,10 @@ const newman = require('newman');
 
 newman.run({
     collection: './pathToFile/collection.json', // Collection URL from a public link or the Postman API can also be used
-    reporters: ['htmlextra'],
+    reporters: ['htmlextra-extended'],
     iterationCount: 1,
     reporter: {
-        htmlextra: {
+        "htmlextra-extended": {
             // export: './report.html',
             // template: './template.hbs'
             // logs: true,
@@ -152,7 +157,9 @@ newman.run({
             // timezone: "Australia/Sydney",
             // skipFolders: "folder name with space,folderWithoutSpace",
             // skipRequests: "request name with space,requestNameWithoutSpace",
-            // displayProgressBar: true
+            // displayProgressBar: true,
+            // iterationNames: ["QA", "Integration"],
+            //scenarioNumbering: true
         }
     }
 });

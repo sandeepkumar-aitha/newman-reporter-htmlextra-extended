@@ -1,5 +1,5 @@
 {
-  "name": "newman-reporter-htmlextra",
+  "name": "newman-reporter-htmlextra-extended",
   "version": "1.22.9",
   "description": "A newman reporter with added handlebars helpers and separated request iterations",
   "main": "index.js",
@@ -15,7 +15,7 @@
   "deprecated": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/DannyDainton/newman-reporter-htmlextra.git"
+    "url": "https://github.com/sandeepkumar-aitha/newman-reporter-htmlextra-extended.git"
   },
   "bugs": "https://github.com/DannyDainton/newman-reporter-htmlextra/issues",
   "keywords": [

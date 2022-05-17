@@ -27,7 +27,9 @@ program
     .option('--reporter-htmlextra-skipSensitiveData', 'Excludes all `Request/Response Headers` and `Request/Response bodies`')
     .option('--reporter-htmlextra-showMarkdownLinks', 'Renders Markdown links from the test names and `pm.expect()` statements')
     .option('--reporter-htmlextra-showFolderDescription', 'Displays all the folder descriptions in the final report')
-    .option('--reporter-htmlextra-timezone', 'Specify the timezone for the final report');
+    .option('--reporter-htmlextra-timezone', 'Specify the timezone for the final report')
+    .option('--reporter-htmlextra-iterationNames', 'Specify the iteration names')
+    .option('--reporter-htmlextra-scenarioNumbering', 'Specify the iteration names');
 
 program
     .addHelpCommand(false)
