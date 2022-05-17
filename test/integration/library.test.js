@@ -71,8 +71,8 @@ describe('Newman and htmlextra run from a script', function () {
         'name (' + collectionFile.info.name + ')', function (done) {
             newman.run({
                 collection: invalidCollectionNameFolder + '/' + file,
-                reporters: ['htmlextra'],
-                reporter: { htmlextra: { } }
+                reporters: ['htmlextra-extended'],
+                reporter: { "htmlextra-extended": { } }
             // eslint-disable-next-line consistent-return
             }, function (err, summary) {
                 if (err) { return done(err); }
