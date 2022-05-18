@@ -244,4 +244,20 @@ describe('Newman and htmlextra run from the CLI', function () {
                 fs.stat(outFile, done);
             });
     });
+    it('should correctly generate the html report when a iternames name is specified', function (done) {
+        // eslint-disable-next-line max-len
+        exec(`${newman} run test/requests/simple-get-request.json -r htmlextra-extended --reporter-export ${outFile} --reporter-iterationNames ['QA', 'Integration']`,
+            function (code) {
+                expect(code, 'should have exit code of 0').to.equal(0);
+                fs.stat(outFile, done);
+            });
+    });
+    it('should correctly generate the html report when a scenarioNumbering is enabled', function (done) {
+        // eslint-disable-next-line max-len
+        exec(`${newman} run test/requests/simple-get-request.json -r htmlextra-extended --reporter-export ${outFile} --reporter-scenarioNumbering true`,
+            function (code) {
+                expect(code, 'should have exit code of 0').to.equal(0);
+                fs.stat(outFile, done);
+            });
+    });
 });

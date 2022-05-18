@@ -408,4 +408,30 @@ describe('Newman and htmlextra run from a script', function () {
             fs.stat(outFile, done);
         });
     });
+    it('Should correctly generate report for Iteration Names', function (done) {
+        newman.run({
+            collection: 'test/requests/simple-skipped-folder.json',
+            reporters: ['htmlextra-extended'],
+            // eslint-disable-next-line max-len
+            reporter: { 'htmlextra-extended': { omitHeaders: true, export: outFile, iterationNames: ['QA', 'Integartion'] } }
+        // eslint-disable-next-line consistent-return
+        }, function (err, summary) {
+            if (err) { return done(err); }
+            expect(summary.collection.name).to.equal('simple-skipped-folder');
+            fs.stat(outFile, done);
+        });
+    });
+    it('Should correctly generate report when  scenarioNumbering is true', function (done) {
+        newman.run({
+            collection: 'test/requests/simple-skipped-folder.json',
+            reporters: ['htmlextra-extended'],
+            // eslint-disable-next-line max-len
+            reporter: { 'htmlextra-extended': { omitHeaders: true, export: outFile, scenarioNumbering: true } }
+        // eslint-disable-next-line consistent-return
+        }, function (err, summary) {
+            if (err) { return done(err); }
+            expect(summary.collection.name).to.equal('simple-skipped-folder');
+            fs.stat(outFile, done);
+        });
+    });
 });

@@ -25,7 +25,7 @@ If you're a fan of the project and you wanted to show your appreciation by keepi
 ## Report Example
 
 ![Default Report](./examples/Default_Report.gif)
-(./examples/NewmanExtendedSample.png)
+![Extended Report](./examples/NewmanExtendedSample.png)
 
 ---
 
