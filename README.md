@@ -1,12 +1,12 @@
-# newman-reporter-htmlextra
+# newman-reporter-htmlextra-extended
 
 ![Newman htmlextra Reporter Logo](./examples/NewmanHtmlextraReporterLogo.png)
 
 [![Build and Test](https://github.com/sandeepkumar-aitha/newman-reporter-htmlextra-extended/workflows/Build%20and%20Test/badge.svg)](https://github.com/sandeepkumar-aitha/newman-reporter-htmlextra-extended/actions)
-[![NPM Version](https://img.shields.io/npm/v/newman-reporter-htmlextra.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra)
-[![NPM Weekly Downloads](https://img.shields.io/npm/dw/newman-reporter-htmlextra.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra)
-[![NPM Downloads](https://img.shields.io/npm/dt/newman-reporter-htmlextra.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra)
-[![Docker Pulls](https://img.shields.io/docker/pulls/dannydainton/htmlextra?style=flat-square)](https://hub.docker.com/r/dannydainton/htmlextra)
+[![NPM Version](https://img.shields.io/npm/v/newman-reporter-htmlextra-extended.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra-extended)
+[![NPM Weekly Downloads](https://img.shields.io/npm/dw/newman-reporter-htmlextra-extended.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra-extended)
+[![NPM Downloads](https://img.shields.io/npm/dt/newman-reporter-htmlextra-extended.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra-extended)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dannydainton/htmlextra?style=flat-square)](https://hub.docker.com/r/dannydainton/htmlextra-extended)
 
 
 
@@ -44,13 +44,13 @@ To give you an idea of what the final report will look like, I've added a workin
 To `globally` install the `htmlextra` package:
 
 ```console
-npm install -g newman-reporter-htmlextra
+npm install -g newman-reporter-htmlextra-extended
 ```
 
 To use `htmlextra` as a library, install the package as a dependency into a `nodejs` project's `package.json` file using:
 
 ```console
-npm install -S newman-reporter-htmlextra
+npm install -S newman-reporter-htmlextra-extended
 ```
 
 To install `node`, `newman` and the `htmlextra` packages together, use this command to pull the `Docker` image:
@@ -63,10 +63,10 @@ docker pull dannydainton/htmlextra
 
 ## Usage
 
-In order to enable this reporter, specify `htmlextra` in Newman's `-r` or `--reporters` option. The following command will create a new report in the `./newman` directory, if the directory does not exist, it will be created as part of the Newman run.
+In order to enable this reporter, specify `htmlextra-extended` in Newman's `-r` or `--reporters` option. The following command will create a new report in the `./newman` directory, if the directory does not exist, it will be created as part of the Newman run.
 
 ```console
-newman run collection.json -r htmlextra
+newman run collection.json -r htmlextra-extended-extended
 ```
 
 ### CLI Options
@@ -75,34 +75,34 @@ newman run collection.json -r htmlextra
 
 | CLI Option  | Description       | Example |
 |-------------|-------------------|---------|
-| `--reporter-htmlextra-export <path>` | Specify a path where the output HTML file will be written to disk. If not specified, the file will be written to `newman/` in the current working directory. | `newman run collection.json -r htmlextra --reporter-htmlextra-export ./results/report.html`|
-| `--reporter-htmlextra-template <path>` | Specify a path to the custom template which will be used to render the HTML report. This option depends on `--reporter htmlextra` and `--reporter-htmlextra-export` being present in the run command. If this option is not specified, the [default template](./lib/dashboard-template.hbs) is used | `newman run collection.json -r htmlextra --reporter-htmlextra-template ./template.hbs`|
-| `--reporter-htmlextra-showOnlyFails` | Use this optional flag to tell the reporter to display only the requests with failed tests. | `newman run collection.json -r htmlextra --reporter-htmlextra-showOnlyFails`|
-| `--reporter-htmlextra-testPaging` | Use this optional flag to add pagination to the tests in the request view. | `newman run collection.json -r htmlextra --reporter-htmlextra-testPaging`|
-| `--reporter-htmlextra-browserTitle` | Use this optional flag to change the name of the title in the browser tab. The default name is "Newman Summary Report". | `newman run collection.json -r htmlextra --reporter-htmlextra-browserTitle "My Newman report"`|
-| `--reporter-htmlextra-title` | This optional flag can be used to give your report a different main `Title` in the centre of the report. If this is not set, the report will show "Newman Run Dashboard". | `newman run collection.json -r htmlextra --reporter-htmlextra-title "My Newman Report"`|
-| `--reporter-htmlextra-titleSize` | An optional flag to reduce the size of the main report title. The sizes range from `1` to `6`, the higher the number, the smaller the title will be. The default size is `2`. | `newman run collection.json -r htmlextra --reporter-htmlextra-titleSize 4`|
-| `--reporter-htmlextra-logs` | This optional flag shows any console log statements in the collection, on the final report. This is `false` by default. | `newman run collection.json -r htmlextra --reporter-htmlextra-logs`|
-| `--reporter-htmlextra-omitRequestBodies` | An optional flag which allows you to exclude all `Request Bodies` from the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-omitRequestBodies`|
-| `--reporter-htmlextra-omitResponseBodies` | An optional flag which allows you to exclude all `Response Bodies` from the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-omitResponseBodies`|
-| `--reporter-htmlextra-hideRequestBody` | An optional flag which allows you to exclude certain `Request Bodies` from the final report. Enter the name of the request that you wish to hide. | `newman run collection.json -r htmlextra --reporter-htmlextra-hideRequestBody "Login"`|
-| `--reporter-htmlextra-hideResponseBody` | An optional flag which allows you to exclude certain `Response Bodies` from the final report. Enter the name of the request that you wish to hide. | `newman run collection.json -r htmlextra --reporter-htmlextra-hideResponseBody "Auth Request"`|
-| `--reporter-htmlextra-showEnvironmentData` | An optional flag which allows you to show all the `Environment` variables used during the run, in the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-showEnvironmentData`|
-| `--reporter-htmlextra-skipEnvironmentVars` | An optional flag which allows you to exclude certain `Environment` variables from the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-skipEnvironmentVars "API_KEY"`|
-| `--reporter-htmlextra-showGlobalData` | An optional flag which allows you to show all the `Global` variables used during the run, in the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-showGlobalData`|
-| `--reporter-htmlextra-skipGlobalVars` | An optional flag which allows you to exclude certain `Global` variables from the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-skipGlobalVars "API_TOKEN"`|
-| `--reporter-htmlextra-omitHeaders` | An optional flag which allows you to exclude all `Headers` from the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-omitHeaders`|
-| `--reporter-htmlextra-skipHeaders` | An optional flag which allows you to exclude certain `Headers` from the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-skipHeaders "Authorization"`|
-| `--reporter-htmlextra-skipSensitiveData` | An optional flag that will exclude all the `Request/Response Headers` and the `Request/Response bodies`, from each request in the final report. This will only show the main request info and the Test Results. This is `false` by default. | `newman run collection.json -r htmlextra --reporter-htmlextra-skipSensitiveData`|
-| `--reporter-htmlextra-skipFolders` | An optional flag that will exclude specified folders and their corresponding requests, in the final report. Ensure that folder names are separated with comma ',' and without space. | `newman run collection.json -r htmlextra --reporter-htmlextra-skipFolders "folder name with space,folderWithoutSpace"`|
-`--reporter-htmlextra-skipRequests` | An optional flag that will exclude specified requests, in the final report. Ensure that request names are separated with comma ',' and without space. | `newman run collection.json -r htmlextra --reporter-htmlextra-skipRequests "request name with space,requestWithoutSpace"`|
-| `--reporter-htmlextra-showMarkdownLinks` | An optional flag which allows you render Markdown links from the test names and `pm.expect()` statements, in the final report. This could be useful if you use an external bug tracker. | `newman run collection.json -r htmlextra --reporter-htmlextra-showMarkdownLinks`|
-| `--reporter-htmlextra-noSyntaxHighlighting` | An optional flag which allows you disable the code syntax highlighting. This _could_ enhance the performance of opening larger reports. | `newman run collection.json -r htmlextra --reporter-htmlextra-noSyntaxHighlighting`|
-| `--reporter-htmlextra-showFolderDescription` | An optional flag which allows you to show all the folder descriptions, in the final report | `newman run collection.json -r htmlextra --reporter-htmlextra-showFolderDescription`|
-| `--reporter-htmlextra-timezone` | An optional flag which allows you to set the timezone on the final report's timestamp | `newman run collection.json -r htmlextra --reporter-htmlextra-timezone "Australia/Sydney"`|
-| `--reporter-htmlextra-displayProgressBar` | An optional flag which displays the progress of the current Newman run in the CLI | `newman run collection.json -r htmlextra --reporter-htmlextra-displayProgressBar`|
-| `--reporter-htmlextra-iterationNames` | An optional array which displays the iteration names provided in options, If value is not set displays numbers which is default | `newman run collection.json -r htmlextra --reporter-htmlextra-iterationNames`|
-| `--reporter-htmlextra-scenarioNumbering` | An optional flag that will show scenario number if consecutive request have same name, If value set to false or not set scenario numbers won't display | `newman run collection.json -r htmlextra --reporter-htmlextra-scenarioNumbering`|
+| `--reporter-export <path>` | Specify a path where the output HTML file will be written to disk. If not specified, the file will be written to `newman/` in the current working directory. | `newman run collection.json -r htmlextra-extended --reporter-export ./results/report.html`|
+| `--reporter-template <path>` | Specify a path to the custom template which will be used to render the HTML report. This option depends on `--reporter htmlextra` and `--reporter-export` being present in the run command. If this option is not specified, the [default template](./lib/dashboard-template.hbs) is used | `newman run collection.json -r htmlextra-extended --reporter-template ./template.hbs`|
+| `--reporter-showOnlyFails` | Use this optional flag to tell the reporter to display only the requests with failed tests. | `newman run collection.json -r htmlextra-extended --reporter-showOnlyFails`|
+| `--reporter-testPaging` | Use this optional flag to add pagination to the tests in the request view. | `newman run collection.json -r htmlextra-extended --reporter-testPaging`|
+| `--reporter-browserTitle` | Use this optional flag to change the name of the title in the browser tab. The default name is "Newman Summary Report". | `newman run collection.json -r htmlextra-extended --reporter-browserTitle "My Newman report"`|
+| `--reporter-title` | This optional flag can be used to give your report a different main `Title` in the centre of the report. If this is not set, the report will show "Newman Run Dashboard". | `newman run collection.json -r htmlextra-extended --reporter-title "My Newman Report"`|
+| `--reporter-titleSize` | An optional flag to reduce the size of the main report title. The sizes range from `1` to `6`, the higher the number, the smaller the title will be. The default size is `2`. | `newman run collection.json -r htmlextra-extended --reporter-titleSize 4`|
+| `--reporter-logs` | This optional flag shows any console log statements in the collection, on the final report. This is `false` by default. | `newman run collection.json -r htmlextra-extended --reporter-logs`|
+| `--reporter-omitRequestBodies` | An optional flag which allows you to exclude all `Request Bodies` from the final report | `newman run collection.json -r htmlextra-extended --reporter-omitRequestBodies`|
+| `--reporter-omitResponseBodies` | An optional flag which allows you to exclude all `Response Bodies` from the final report | `newman run collection.json -r htmlextra-extended --reporter-omitResponseBodies`|
+| `--reporter-hideRequestBody` | An optional flag which allows you to exclude certain `Request Bodies` from the final report. Enter the name of the request that you wish to hide. | `newman run collection.json -r htmlextra-extended --reporter-hideRequestBody "Login"`|
+| `--reporter-hideResponseBody` | An optional flag which allows you to exclude certain `Response Bodies` from the final report. Enter the name of the request that you wish to hide. | `newman run collection.json -r htmlextra-extended --reporter-hideResponseBody "Auth Request"`|
+| `--reporter-showEnvironmentData` | An optional flag which allows you to show all the `Environment` variables used during the run, in the final report | `newman run collection.json -r htmlextra-extended --reporter-showEnvironmentData`|
+| `--reporter-skipEnvironmentVars` | An optional flag which allows you to exclude certain `Environment` variables from the final report | `newman run collection.json -r htmlextra-extended --reporter-skipEnvironmentVars "API_KEY"`|
+| `--reporter-showGlobalData` | An optional flag which allows you to show all the `Global` variables used during the run, in the final report | `newman run collection.json -r htmlextra-extended --reporter-showGlobalData`|
+| `--reporter-skipGlobalVars` | An optional flag which allows you to exclude certain `Global` variables from the final report | `newman run collection.json -r htmlextra-extended --reporter-skipGlobalVars "API_TOKEN"`|
+| `--reporter-omitHeaders` | An optional flag which allows you to exclude all `Headers` from the final report | `newman run collection.json -r htmlextra-extended --reporter-omitHeaders`|
+| `--reporter-skipHeaders` | An optional flag which allows you to exclude certain `Headers` from the final report | `newman run collection.json -r htmlextra-extended --reporter-skipHeaders "Authorization"`|
+| `--reporter-skipSensitiveData` | An optional flag that will exclude all the `Request/Response Headers` and the `Request/Response bodies`, from each request in the final report. This will only show the main request info and the Test Results. This is `false` by default. | `newman run collection.json -r htmlextra-extended --reporter-skipSensitiveData`|
+| `--reporter-skipFolders` | An optional flag that will exclude specified folders and their corresponding requests, in the final report. Ensure that folder names are separated with comma ',' and without space. | `newman run collection.json -r htmlextra-extended --reporter-skipFolders "folder name with space,folderWithoutSpace"`|
+`--reporter-skipRequests` | An optional flag that will exclude specified requests, in the final report. Ensure that request names are separated with comma ',' and without space. | `newman run collection.json -r htmlextra-extended --reporter-skipRequests "request name with space,requestWithoutSpace"`|
+| `--reporter-showMarkdownLinks` | An optional flag which allows you render Markdown links from the test names and `pm.expect()` statements, in the final report. This could be useful if you use an external bug tracker. | `newman run collection.json -r htmlextra-extended --reporter-showMarkdownLinks`|
+| `--reporter-noSyntaxHighlighting` | An optional flag which allows you disable the code syntax highlighting. This _could_ enhance the performance of opening larger reports. | `newman run collection.json -r htmlextra-extended --reporter-noSyntaxHighlighting`|
+| `--reporter-showFolderDescription` | An optional flag which allows you to show all the folder descriptions, in the final report | `newman run collection.json -r htmlextra-extended --reporter-showFolderDescription`|
+| `--reporter-timezone` | An optional flag which allows you to set the timezone on the final report's timestamp | `newman run collection.json -r htmlextra-extended --reporter-timezone "Australia/Sydney"`|
+| `--reporter-displayProgressBar` | An optional flag which displays the progress of the current Newman run in the CLI | `newman run collection.json -r htmlextra-extended --reporter-displayProgressBar`|
+| `--reporter-iterationNames` | An optional array which displays the iteration names provided in options, If value is not set displays numbers which is default | `newman run collection.json -r htmlextra-extended --reporter-iterationNames`|
+| `--reporter-scenarioNumbering` | An optional flag that will show scenario number if consecutive request have same name, If value set to false or not set scenario numbers won't display | `newman run collection.json -r htmlextra-extended --reporter-scenarioNumbering`|
 
 ---
 
@@ -175,19 +175,19 @@ A docker image `dannydainton/htmlextra` has been created for the reporter and ca
 Using this command, it will pull down the image and run the Postman Collection with Newman. Once the run has completed it will create a new report file in the `/newman` dir.
 
 ```console
-docker run -t -v $(pwd):/etc/newman dannydainton/htmlextra run collection.json -r htmlextra
+docker run -t -v $(pwd):/etc/newman dannydainton/htmlextra run collection.json -r htmlextra-extended
 ```
 
 Using an environment file during the Newman run:
 
 ```console
-docker run -t -v $(pwd):/etc/newman dannydainton/htmlextra run collection.json -e environment.json -r htmlextra
+docker run -t -v $(pwd):/etc/newman dannydainton/htmlextra run collection.json -e environment.json -r htmlextra-extended
 ```
 
 Using either the Shared Collection link from the Postman App or using the Postman API Link to the files:
 
 ```console
-docker run -t -v $(pwd):/etc/newman dannydainton/htmlextra run <URL to Collection> -e <URL to Environment> -r htmlextra
+docker run -t -v $(pwd):/etc/newman dannydainton/htmlextra run <URL to Collection> -e <URL to Environment> -r htmlextra-extended
 ```
 
 Each of these command can be used with the different CLI flags to create the final report that you require.
@@ -213,7 +213,7 @@ The easiest way to contribute is to locally pull down the repository code, make 
 3. Run `npm i`
 4. Run `npm run local-dev` to globally link the project with Newman 
 5. Make your changes to the reporter  
-6. Run `npx newman run collection_file.json -r htmlextra` to create a new report and see your changes in the output
+6. Run `npx newman run collection_file.json -r htmlextra-extended` to create a new report and see your changes in the output
 7. Submit a PR for review
 
 ---
