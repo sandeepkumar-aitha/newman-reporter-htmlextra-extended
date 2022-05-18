@@ -8,6 +8,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dt/newman-reporter-htmlextra-extended.svg?style=flat-square)](https://www.npmjs.com/package/newman-reporter-htmlextra-extended)
 [![Docker Pulls](https://img.shields.io/docker/pulls/dannydainton/htmlextra?style=flat-square)](https://hub.docker.com/r/dannydainton/htmlextra-extended)
 
+
 This is forked from [Newman Reporter htmlextra](https://github.com/DannyDainton/newman-reporter-htmlextra). This package have 3 more extra features
 1. Changed color for skipped cases from bg-success to bg-warning and changed badge color to badge-danger.
 2. Introduced iteration names, By default existing report shows numbers but if we have multiple iteration and report user can't differentiate difference.
