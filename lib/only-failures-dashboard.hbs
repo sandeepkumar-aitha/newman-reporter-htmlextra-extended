@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-y: scroll;">
 <head>
   <meta charset="UTF-8">
   <title>{{browserTitle}}</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
-
 
 <style>
 code.renderMarkdown table, code.renderMarkdown th, code.renderMarkdown td {
@@ -337,15 +336,15 @@ body.theme-light .card-body .bg-danger {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
 }
 
 /* The switch - the box around the slider */
@@ -422,15 +421,15 @@ input:checked + .slider:before {
 
 table.dataTable td, table.dataTable tr {
     vertical-align: middle;
-} 
+}
 
 body.theme-dark code {
     color: #ccd2d8!important;
-} 
+}
 
 body.theme-light code {
     color: #000000!important;
-} 
+}
 
 </style>
 </head>
@@ -463,7 +462,7 @@ body.theme-light code {
             </ul>
         {{/with}}
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-summary" role="tabcard" aria-labelledby="pills-summary-tab"> 
+            <div class="tab-pane fade show active" id="pills-summary" role="tabcard" aria-labelledby="pills-summary-tab">
 <div class="row">
   <div class="col-md-9 col-lg-12 main">
    <h1 class="display-{{titleSize}} text-center">{{title}}</h1>
@@ -526,7 +525,7 @@ body.theme-light code {
                 <span><i class="fas fa-file-code"></i></span><strong> Collection:</strong> {{collection.name}}<br>
                 {{/with}}
                 {{#if folders}}<span><i class="fas fa-folder"></i></span><strong> Specified Folders:</strong> {{folders}}<br>{{/if}}
-                {{#with summary}}  
+                {{#with summary}}
                 {{#if environment.name}}<span><i class="fas fa-file-code"></i></span><strong> Environment:</strong> {{environment.name}}<br>{{/if}}
                 </div>
             </div>
@@ -546,7 +545,6 @@ body.theme-light code {
                     </h5>
                     <div id="global-values" class="collapse" aria-labelledby="global-heading">
                     <div class="card-body">
-                        
                         <div class="table-responsive dyn-height">
                             <table class="table table-bordered">
                             <thead class="thead-light text-center"><tr><th>Variable Name</th><th>Variable Value</th></tr></thead>
@@ -584,7 +582,6 @@ body.theme-light code {
                     </h5>
                     <div id="environment-values" class="collapse" aria-labelledby="environment-heading">
                     <div class="card-body">
-                        
                         <div class="table-responsive dyn-height">
                             <table class="table table-bordered">
                             <thead class="thead-light text-center"><tr><th>Variable Name</th><th>Variable Value</th></tr></thead>
@@ -612,7 +609,7 @@ body.theme-light code {
         <div class="row">
         <div class="col-sm-12 mb-3">
             <div class="card border-info">
-                <div class="card-body">          
+                <div class="card-body">
                 <h5 class="card-title text-uppercase text-white text-center bg-info">Collection Description</h5>
                 <div class="dyn-height">
                     <pre class="renderMarkdown">{{collection.description}}</pre>
@@ -695,7 +692,6 @@ body.theme-light code {
                     </div>
                     <br>
                     <br>
-                    
                     {{#with summary}}
                     <div class="alert alert-danger text-uppercase text-center">
                         <h4>Showing {{failures.length}} {{#gt failures.length 1}}Failures{{else}}Failure{{/gt}}</h4>
@@ -797,7 +793,7 @@ body.theme-light code {
         {{> aggregations}}
         {{/if}}
 {{/each}} 
-        </div>      
+        </div>
     </div>
     </div>
     </div>
@@ -826,14 +822,15 @@ body.theme-light code {
 {{/if}}
 {{/if}}
 {{#each executions}}
-{{#gt cumulativeTests.failed 0}}
+{{setScenarioNumber item.name}}
+{{#or cumulativeTests.skipped cumulativeTests.failed}}
     <div class="card-deck iteration-{{cursor.iteration}}">
     <div class="row iteration-{{cursor.iteration}}">
         <div class="col-sm-12 mb-3 iteration-{{cursor.iteration}}">
         <div class="card iteration-{{cursor.iteration}}">
             <div class="card-header {{#if cumulativeTests.failed}} bg-danger{{else if cumulativeTests.skipped}}bg-warning{{else}} bg-success{{/if}} iteration-{{cursor.iteration}}">
                 <a data-toggle="collapse" href="#" data-target="#collapse-{{cursor.ref}}" aria-expanded="false" aria-controls="collapse" id="requests-{{cursor.ref}}" class="collapsed text-white z-block">
-            Iteration: {{getIterationName cursor.iteration}} - {{item.name}}{{getScenarioNumber item.name }}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
+            Iteration: {{getIterationName cursor.iteration}} - {{item.name}}{{getFailureScenarioNumber}}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
         </a>
         {{#if cumulativeTests.skipped}}
         <span class="badge badge-danger text-white text-uppercase">{{cumulativeTests.skipped}} Skipped {{#gt cumulativeTests.skipped 1}}Tests{{else}}Test{{/gt}}</span>
@@ -1197,7 +1194,7 @@ body.theme-light code {
         </div>
     </div>
     </div>
-{{/gt}}  
+{{/or}}  
 {{/each}}
 {{/inline}}
 

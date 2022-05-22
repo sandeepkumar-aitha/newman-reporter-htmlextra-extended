@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -----------------------------------------------------------------------
 
+## [2.1.0] - 2022-05-23
+
+### Updated
+
+- Changing version to 2 as it is forked.
+- Now `only-failures-dashboard` template shows skipped requests in `Total Requests` tab.
+
+### Fixed
+
+- Fixed ScenarioNumbering in `only-failures-dashboard` template, Now it will show actual number.
+
+-----------------------------------------------------------------------
+
+## [1.22.10] - 2022-05-17
+
+### Added
+
+- Forked from https://github.com/DannyDainton/newman-reporter-htmlextra and introduced 3 changes
+- 1. Changed color for skipped cases from bg-success to bg-warning and changed badge color to badge-danger.
+- 2. Introduced iteration names, By default existing report shows numbers but if we have multiple iteration and report user can't differentiate difference.
+- 3. Introduced Scenario Numbering, If consecutive request names are same then "Scenario <number>" will be appendeding at the end. As of now implemented in "Total Requests" tab.
+
+-----------------------------------------------------------------------
+
 ## [1.22.9] - 2022-05-03
 
 ### Fixed
