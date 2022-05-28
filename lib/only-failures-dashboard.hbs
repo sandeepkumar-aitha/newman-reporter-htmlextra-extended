@@ -331,6 +331,10 @@ body.theme-light .card-body .bg-danger {
   height: 60px;
 }
 
+.multiple-line-tabs {
+  padding-top: 10px;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -778,7 +782,7 @@ body.theme-light code {
         <h5>{{stats.iterations.total}} {{#gt stats.iterations.total 1}}Iterations{{else}}Iteration{{/gt}} available to view</h5>
         {{#gt stats.iterations.total 18}}<input class="form-control w-25" style="margin-bottom: 5px;" id="filterInput" type="number" min="1" placeholder="Filter Iterations">{{/gt}}
         {{/with}}
-        <ul class="nav {{#gt summary.stats.iterations.total 18}}nav-tabs{{else}}single-line-tabs{{/gt}}" id="iterationList">
+        <ul class="nav {{#gt summary.stats.iterations.total 18}}nav-tabs{{else}}multiple-line-tabs{{/gt}}" id="iterationList">
         </ul>
     </div>
     <h6 class="text-uppercase text-muted" id="iterationSelected" style="padding-top: 10px;"></h6>
@@ -1085,10 +1089,10 @@ body.theme-light code {
                             <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
                             {{#if response.body}}
                                 <div class="dyn-height">
-                                        <pre><code id="copyText-{{item.id}}" class="prettyPrint">{{response.body}}</code></pre>
+                                        <pre><code id="copyText-{{item.id}}-{{@key}}" class="prettyPrint">{{response.body}}</code></pre>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-{{item.id}}">Copy to Clipboard</button>
+                                    <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-{{item.id}}-{{@key}}">Copy to Clipboard</button>
                                 </div>
                             {{else}}
                             <h5 class="alert alert-success text-uppercase text-center">No Response Body for this request</h5>

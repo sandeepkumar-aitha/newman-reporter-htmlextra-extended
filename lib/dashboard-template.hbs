@@ -329,6 +329,10 @@ body.theme-light .card-body .bg-danger {
   height: 60px;
 }
 
+.multiple-line-tabs {
+  padding-top: 10px;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -800,7 +804,7 @@ body.theme-light code {
         {{#gt stats.iterations.total 18}}<input class="form-control w-25" style="margin-bottom: 5px;" id="filterInput" type="number" min="1" placeholder="Filter Iterations">{{/gt}}
         {{/with}}
         <nav class="table-responsive">
-        <ul class="nav {{#gt summary.stats.iterations.total 18}}nav-tabs{{else}}single-line-tabs{{/gt}}" id="iterationList">
+        <ul class="nav {{#gt summary.stats.iterations.total 18}}nav-tabs{{else}}multiple-line-tabs{{/gt}}" id="iterationList">
         </ul>
         </nav>
     </div>
@@ -859,7 +863,7 @@ body.theme-light code {
         <div class="card iteration-{{cursor.iteration}}">
             <div class="card-header {{#if cumulativeTests.failed}} bg-danger{{else if cumulativeTests.skipped}}bg-warning{{else}} bg-success{{/if}} iteration-{{cursor.iteration}}">
                 <a data-toggle="collapse" href="#" data-target="#collapse-{{cursor.ref}}" aria-expanded="false" aria-controls="collapse" id="requests-{{cursor.ref}}" class="collapsed text-white z-block">
-            Iteration: {{getIterationName cursor.iteration}} - {{item.name}}{{getScenarioNumber item.name }}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
+            Iteration: {{getIterationName cursor.iteration}} - {{item.name}}{{getScenarioNumber item.name}}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
         </a>
         {{#if cumulativeTests.skipped}}
         <span class="badge badge-danger text-white text-uppercase">{{cumulativeTests.skipped}} Skipped {{#gt cumulativeTests.skipped 1}}Tests{{else}}Test{{/gt}}</span>
@@ -1114,10 +1118,10 @@ body.theme-light code {
                             <h5 class="card-title text-uppercase text-white text-center bg-info">Response Body</h5>
                             {{#if response.body}}
                                 <div class="dyn-height">
-                                        <pre><code id="copyText-{{item.id}}" class="prettyPrint">{{response.body}}</code></pre>
+                                        <pre><code id="copyText-{{item.id}}-{{@key}}" class="prettyPrint">{{response.body}}</code></pre>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-{{item.id}}">Copy to Clipboard</button>
+                                    <button class="btn btn-outline-secondary btn-sm copyButton" type="button" data-clipboard-action="copy" data-clipboard-target="#copyText-{{item.id}}-{{@key}}">Copy to Clipboard</button>
                                 </div>
                             {{else}}
                             <h5 class="alert alert-success text-uppercase text-center">No Response Body for this request</h5>

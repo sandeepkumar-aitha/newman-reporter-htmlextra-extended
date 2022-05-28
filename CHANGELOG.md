@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -----------------------------------------------------------------------
 
+## [2.1.1] - 2022-05-29
+
+### Fixed
+
+- Fixed `Copy to Clipboard` button issue when request id is same.
+- Scroll bar is enabled for iteration tab section, when iteration tabs are more. 
+
+-----------------------------------------------------------------------
+
 ## [2.1.0] - 2022-05-23
 
 ### Updated
