@@ -6,7 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -----------------------------------------------------------------------
+## [2.1.2] - 2022-06-25
 
+### Fixed
+
+- Adding timezone in report.
+
+-----------------------------------------------------------------------
 ## [2.1.1] - 2022-05-29
 
 ### Fixed
