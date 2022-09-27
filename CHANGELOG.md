@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -----------------------------------------------------------------------
+## [2.1.3] - 2022-09-28
+
+### Fixed
+
+- Changed colors of tiles.
+- Bumped moment-timezone version.
+
+-----------------------------------------------------------------------
 ## [2.1.2] - 2022-06-25
 
 ### Fixed
