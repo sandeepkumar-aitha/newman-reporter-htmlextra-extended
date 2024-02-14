@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -----------------------------------------------------------------------
+## [2.1.5] - 2024-02-14
+
+### Fixed
+
+- Updated Show Failed Iterations logic
+-----------------------------------------------------------------------
+## [2.1.4] - 2022-10-18
+
+### Fixed
+
+- Updated Show Failed Iterations logic
+-----------------------------------------------------------------------
 ## [2.1.3] - 2022-09-28
 
 ### Fixed
@@ -51,6 +63,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - 1. Changed color for skipped cases from bg-success to bg-warning and changed badge color to badge-danger.
 - 2. Introduced iteration names, By default existing report shows numbers but if we have multiple iteration and report user can't differentiate difference.
 - 3. Introduced Scenario Numbering, If consecutive request names are same then "Scenario <number>" will be appendeding at the end. As of now implemented in "Total Requests" tab.
+
+-----------------------------------------------------------------------
+
+## [1.23.0] - 2024-01-03
+
+### Updated
+
+- Updated the Newman version used for the tests and upgraded the node version in the GH Action files.
+
+-----------------------------------------------------------------------
+
+## [1.22.10] - 2022-06-23
+
+### Fixed
+
+- Fixed a ux issue which did not wrap long values in the headers sections and it added an unecessary scrollbar. 🏆 Credit to @w4dd325 🏆
 
 -----------------------------------------------------------------------
 

@@ -29,7 +29,7 @@ program
     .option('--reporter-showFolderDescription', 'Displays all the folder descriptions in the final report')
     .option('--reporter-timezone', 'Specify the timezone for the final report')
     .option('--reporter-iterationNames', 'Specify the iteration names')
-    .option('--reporter-scenarioNumbering', 'Specify the iteration names');
+    .option('--reporter-scenarioNumbering', 'Specify whether scenarioNumbering should be enabled or not');
 
 program
     .addHelpCommand(false)
