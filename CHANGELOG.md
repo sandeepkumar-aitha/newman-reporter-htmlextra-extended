@@ -6,11 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -----------------------------------------------------------------------
+## [2.2] - 2024-02-15
+
+### Fixed
+
+- Updated IterationNames logic.
+-----------------------------------------------------------------------
 ## [2.1.5] - 2024-02-14
 
 ### Fixed
 
-- Updated Show Failed Iterations logic
+- Pulled latest changes from fork repo.
 -----------------------------------------------------------------------
 ## [2.1.4] - 2022-10-18
 

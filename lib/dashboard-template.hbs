@@ -1602,7 +1602,7 @@ window.onload = function () {
   for(var i = 0; i < totalIterations; i++)
   {
     let li = document.createElement('li');
-    li.appendChild(document.createTextNode(iterationTabs[i]));
+    li.appendChild(document.createTextNode(iterationTabs[i]===undefined?(i+1):iterationTabs[i]));
     li.setAttribute('id', 'iteration-' + i);
     li.classList.add("custom-tab");
     li.classList.add("itPassed");
