@@ -109,6 +109,7 @@ newman run collection.json -r htmlextra-extended-extended
 | `--reporter-displayProgressBar` | An optional flag which displays the progress of the current Newman run in the CLI | `newman run collection.json -r htmlextra-extended --reporter-displayProgressBar`|
 | `--reporter-iterationNames` | An optional array which displays the iteration names provided in options, If value is not set displays numbers which is default | `newman run collection.json -r htmlextra-extended --reporter-iterationNames`|
 | `--reporter-scenarioNumbering` | An optional flag that will show scenario number if consecutive request have same name, If value set to false or not set scenario numbers won't display | `newman run collection.json -r htmlextra-extended --reporter-scenarioNumbering`|
+| `--reporter-AppendTestNames` | An optional flag that will append test names defined in pm.test(), If there are multiple tests then it will seperated by comma(,) , If value set to false or not set test names won't be appended | `newman run collection.json -r htmlextra-extended --reporter-AppendTestNames`|
 
 ---
 

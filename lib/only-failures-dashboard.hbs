@@ -442,13 +442,6 @@ body.theme-light code {
     white-space: normal;
 }
 
-.text-wrap {
-    word-wrap: break-word; 
-    min-width: 600px; 
-    max-width: 600px; 
-    white-space: normal;
-}
-
 </style>
 </head>
 <body>
@@ -848,7 +841,7 @@ body.theme-light code {
         <div class="card iteration-{{cursor.iteration}}">
             <div class="card-header {{#if cumulativeTests.failed}} bg-danger{{else if cumulativeTests.skipped}}bg-warning{{else}} bg-success{{/if}} iteration-{{cursor.iteration}}">
                 <a data-toggle="collapse" href="#" data-target="#collapse-{{cursor.ref}}" aria-expanded="false" aria-controls="collapse" id="requests-{{cursor.ref}}" class="collapsed text-white z-block">
-            Iteration: {{getIterationName cursor.iteration}} - {{item.name}}{{getFailureScenarioNumber}}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
+            Iteration: {{getIterationName cursor.iteration}} - {{item.name}}{{getFailureScenarioNumber}}{{AppendTestNames assertions}}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
         </a>
         {{#if cumulativeTests.skipped}}
         <span class="badge badge-danger text-white text-uppercase">{{cumulativeTests.skipped}} Skipped {{#gt cumulativeTests.skipped 1}}Tests{{else}}Test{{/gt}}</span>
