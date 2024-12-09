@@ -869,8 +869,8 @@ body.theme-light code {
         <div class="col-sm-12 mb-3 iteration-{{cursor.iteration}}">
         <div class="card iteration-{{cursor.iteration}}">
             <div class="card-header {{#if cumulativeTests.failed}} bg-danger{{else if cumulativeTests.skipped}}bg-warning{{else}} bg-success{{/if}} iteration-{{cursor.iteration}}">
-                <a data-toggle="collapse" href="#" data-target="#collapse-{{cursor.ref}}" aria-expanded="false" aria-controls="collapse" id="requests-{{cursor.ref}}" class="collapsed text-white z-block">
-            Iteration: {{getIterationName cursor.iteration}} - {{item.name}}{{getScenarioNumber item.name}}{{AppendTestNames assertions}}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
+                <a data-toggle="collapse" href="#" data-target="#collapse-{{cursor.ref}}" aria-expanded="false" aria-controls="collapse" id="requests-{{cursor.ref}}" class="collapsed text-white z-block"  style="text-decoration:none">
+            Iteration: {{getIterationName cursor.iteration}} - <span class="badge-outline-primary badge badge-primary">{{request.method}}</span> {{item.name}}{{getScenarioNumber item.name}}{{AppendTestNames assertions}}<i class="float-lg-right fa fa-chevron-down" style="padding-top: 5px;"></i>
         </a>
         {{#if cumulativeTests.skipped}}
         <span class="badge badge-danger text-white text-uppercase">{{cumulativeTests.skipped}} Skipped {{#gt cumulativeTests.skipped 1}}Tests{{else}}Test{{/gt}}</span>
